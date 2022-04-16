@@ -22,3 +22,8 @@ interface PostDao {
     @Delete
     fun delete(post: Post)
 }
+
+@Database(entities = [Post::class], version = 1)
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun postDao() : PostDao
+}

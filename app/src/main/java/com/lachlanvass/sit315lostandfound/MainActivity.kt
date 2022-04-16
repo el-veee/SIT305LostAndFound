@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.room.Room
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,5 +26,10 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+
+        val db = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java, "Post"
+        ).build()
     }
 }
