@@ -1,5 +1,6 @@
 package com.lachlanvass.sit315lostandfound
 
+import android.content.Context
 import androidx.room.*
 
 @Entity
@@ -26,4 +27,18 @@ interface PostDao {
 @Database(entities = [Post::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun postDao() : PostDao
+
+    companion object {
+        private var INSTANCE: AppDatabase? = null
+        fun getDatabase(context: Context): AppDatabase {
+            if (INSTANCE == null) {
+                synchronized(this) {
+                    INSTANCE =
+                        Room.databaseBuilder(context,AppDatabase::class.java, "contact_database")
+                            .build()
+                }
+            }
+            return INSTANCE!!
+        }
+    }
 }
