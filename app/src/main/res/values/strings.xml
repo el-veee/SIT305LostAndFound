@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SIT315LostAndFound</string>
+    <string name="create_new_advert_button">Create a New Advert</string>
+    <string name="show_all_button">Show all Lost &amp; Found Items</string>
+</resources>
