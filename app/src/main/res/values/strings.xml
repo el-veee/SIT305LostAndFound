@@ -2,4 +2,16 @@
     <string name="app_name">SIT315LostAndFound</string>
     <string name="create_new_advert_button">Create a New Advert</string>
     <string name="show_all_button">Show all Lost &amp; Found Items</string>
+
+<!--    Create a new Advert Strings-->
+    <string name="post_type_label">Post type:</string>
+    <string name="lost_radio_label">Lost</string>
+    <string name="found_radio_label">Found</string>
+    <string name="name_label">Name:</string>
+    <string name="phone_label">Phone:</string>
+    <string name="description_label">Description:</string>
+    <string name="date_label">Date:</string>
+    <string name="location_label">Location:</string>
+    <string name="save_button">Save</string>
+    <string name="name_input_autofill">Name input</string>
 </resources>
