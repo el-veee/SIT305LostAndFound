@@ -20,6 +20,9 @@ interface PostDao {
     @Query("SELECT * FROM Post")
     fun getAll(): List<Post>
 
+    @Insert
+    fun insert(post: Post)
+
     @Delete
     fun delete(post: Post)
 }

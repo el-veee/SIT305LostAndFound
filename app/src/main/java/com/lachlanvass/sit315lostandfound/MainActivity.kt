@@ -5,6 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.room.Room
+import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
+import kotlinx.coroutines.runBlocking
+import java.util.*
+import javax.security.auth.callback.Callback
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,5 +36,27 @@ class MainActivity : AppCompatActivity() {
             applicationContext,
             AppDatabase::class.java, "Post"
         ).build()
+
+        prepopulatePostDb(db)
+
+    }
+
+    private fun prepopulatePostDb(db: AppDatabase) {
+        val uuid = UUID.randomUUID()
+
+        val prepopulateData = listOf<Post>(
+            Post(
+                uuid.variant(),
+                null,
+                null,
+                null,
+                null,
+                null
+            ),
+        )
+
+        prepopulateData.forEach { post ->
+            db.postDao().insert(post)
+        }
     }
 }
